@@ -5,90 +5,62 @@
 </asp:content>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-<p>TEST1</p>
-    <p>test</p>
+       <div class="col-lg-8 col-md-6 mb-md-0 mb-4" style="width:100%">
+          <div class="card">
+            <div class="card-header pb-0">
+                <h3>Test Functionality</h3>
+                <asp:Label ID="LblTestFun" runat="server" Text="Test Functionality"></asp:Label>
+               <div class="input-group input-group-outline mb-3" style="width:30%;">
+                     <asp:TextBox ID="TxtName" Class="form-control" runat="server">
+                     </asp:TextBox>
+               </div>
+                 <div class="input-group input-group-outline mb-3" style="width:30%;">
+                     <asp:TextBox ID="TxtPassword" Class="form-control" runat="server" TextMode="Password">
+                     </asp:TextBox>
+               </div>
+                 <div class="input-group input-group-outline mb-3" style="width:30%;">
+                     <asp:DropDownList ID="DdChoose"  Class="form-control" runat="server" OnLoad="Page_Load" >
 
-    <p>New Branch Testing11111</p>
-<p>222222</p>
-    <p>Taha Ali Reeh</p>
-        <div class="row">
-        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-          <div class="card">
-            <div class="card-header p-3 pt-2">
-              <div class="icon icon-lg icon-shape bg-gradient-dark shadow-dark text-center border-radius-xl mt-n4 position-absolute">
-                <i class="material-icons opacity-10">weekend</i>
-              </div>
-              <div class="text-end pt-1">
-                <p class="text-sm mb-0 text-capitalize">Today's Money</p>
-                <h4 class="mb-0">$53k</h4>
+                     </asp:DropDownList>
+               </div>
+                   <%--&nbsp; &nbsp; &nbsp;--%>
+              <div>
+              <asp:Button ID="BtnSubmit" class="btn bg-gradient-dark px-3 mb-2 active" runat="server" Text="Submit" OnClick="BtnSubmit_Click" />
               </div>
             </div>
-            <hr class="dark horizontal my-0">
-            <div class="card-footer p-3">
-              <p class="mb-0"><span class="text-success text-sm font-weight-bolder">+55% </span>than lask week</p>
-            </div>
+
+                
+
           </div>
         </div>
-        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+
+    <br />
+    <br />
+
+     <div class="col-lg-8 col-md-6 mb-md-0 mb-4" style="width:100%">
           <div class="card">
-            <div class="card-header p-3 pt-2">
-              <div class="icon icon-lg icon-shape bg-gradient-primary shadow-primary text-center border-radius-xl mt-n4 position-absolute">
-                <i class="material-icons opacity-10">person</i>
-              </div>
-              <div class="text-end pt-1">
-                <p class="text-sm mb-0 text-capitalize">Today's Users</p>
-                <h4 class="mb-0">2,300</h4>
-              </div>
+            <div class="card-header pb-0">
+                <h3>Data View</h3>
+
+                <asp:GridView ID="DGVShow" runat="server" CssClass="table align-items-center mb-0" BorderStyle="None" AllowPaging="False" AllowSorting="True" AutoGenerateSelectButton="True" SelectedRowStyle-BorderStyle="Solid" SelectedRowStyle-BorderColor="#E32F6E" SelectedRowStyle-ForeColor="#E32F6E">
+
+                  <Columns>
+                       <asp:BoundField DataField="Id" HeaderText="المعرف" 
+                       InsertVisible="False" ReadOnly="True" SortExpression="Id" ControlStyle-ForeColor="Blue" />
+                       <asp:BoundField DataField="first_name" HeaderText="الإسم الأول" 
+                       SortExpression="first_name" />
+                       <asp:BoundField DataField="last_name" HeaderText="إسم العائلة" 
+                       SortExpression="last_name" />
+                 </Columns>
+
+                </asp:GridView>
+
             </div>
-            <hr class="dark horizontal my-0">
-            <div class="card-footer p-3">
-              <p class="mb-0"><span class="text-success text-sm font-weight-bolder">+3% </span>than lask month</p>
-            </div>
+
           </div>
         </div>
-        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-          <div class="card">
-            <div class="card-header p-3 pt-2">
-              <div class="icon icon-lg icon-shape bg-gradient-success shadow-success text-center border-radius-xl mt-n4 position-absolute">
-                <i class="material-icons opacity-10">person</i>
-              </div>
-              <div class="text-end pt-1">
-                <p class="text-sm mb-0 text-capitalize">New Clients</p>
-                <h4 class="mb-0">3,462</h4>
-              </div>
-            </div>
-            <hr class="dark horizontal my-0">
-            <div class="card-footer p-3">
-              <p class="mb-0"><span class="text-danger text-sm font-weight-bolder">-2%</span> than yesterday</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-3 col-sm-6">
-          <div class="card">
-            <div class="card-header p-3 pt-2">
-              <div class="icon icon-lg icon-shape bg-gradient-info shadow-info text-center border-radius-xl mt-n4 position-absolute">
-                <i class="material-icons opacity-10">weekend</i>
-              </div>
-              <div class="text-end pt-1">
-                <p class="text-sm mb-0 text-capitalize">Sales</p>
-                <h4 class="mb-0">$1005,550</h4>
-              </div>
-            </div>
-            <hr class="dark horizontal my-0">
-            <div class="card-footer p-3">
-              <p class="mb-0"><span class="text-success text-sm font-weight-bolder">+5% </span>than yesterday</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    <br />
-    <br />
-    <br />
-    <asp:Button ID="Button1" class="btn bg-gradient-dark px-3 mb-2 active" runat="server" Text="Button" />
-    <br />
-    <br />
-    <br />
-    <button class="TEST5">Hi</button>
+
+   
 
 
 </asp:Content>
