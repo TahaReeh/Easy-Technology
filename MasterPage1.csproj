@@ -452,7 +452,6 @@
     <Content Include="_Easy\EasyMaster.Master" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="_EasyPages\" />
     <Folder Include="_Easy\docs\" />
   </ItemGroup>
   <PropertyGroup>
