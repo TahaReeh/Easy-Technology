@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/_Easy/EasyMaster.Master" AutoEventWireup="true" CodeBehind="FrmContent1.aspx.cs" Inherits="MasterPage1._EasyPages.FrmContent1" %>
-
+<%--<%@ MasterType virtualpath="~/_Easy/EasyMaster.Master" %>--%>
 <%@ Register Assembly="System.Web.DataVisualization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" Namespace="System.Web.UI.DataVisualization.Charting" TagPrefix="asp" %>
 <asp:content contentplaceholderid="head" runat="server">
 </asp:content>
@@ -25,7 +25,7 @@
                </div>
                    <%--&nbsp; &nbsp; &nbsp;--%>
               <div>
-              <asp:Button ID="BtnSubmit" class="btn bg-gradient-dark px-3 mb-2 active" runat="server" Text="Submit" OnClick="BtnSubmit_Click" />
+              <asp:Button ID="BtnSubmit" Cssclass="btn bg-gradient-dark px-3 mb-2 active" runat="server" Text="Submit" OnClick="BtnSubmit_Click" />
               </div>
             </div>
 
@@ -42,7 +42,14 @@
             <div class="card-header pb-0">
                 <h3>Data View</h3>
 
-                <asp:GridView ID="DGVShow" runat="server" CssClass="table align-items-center mb-0" BorderStyle="None" AllowPaging="False" AllowSorting="True" AutoGenerateSelectButton="True" SelectedRowStyle-BorderStyle="Solid" SelectedRowStyle-BorderColor="#E32F6E" SelectedRowStyle-ForeColor="#E32F6E">
+                <asp:GridView ID="DGVShow" runat="server" 
+                    CssClass="table align-items-center mb-0" 
+                    BorderStyle="None" AllowPaging="False" 
+                    AllowSorting="True" AutoGenerateSelectButton="True" 
+                    SelectedRowStyle-BorderStyle="Solid" 
+                    SelectedRowStyle-BorderColor="#E32F6E" 
+                    SelectedRowStyle-ForeColor="#E32F6E"
+                    AutoGenerateColumns="False">
 
                   <Columns>
                        <asp:BoundField DataField="Id" HeaderText="المعرف" 

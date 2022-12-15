@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="EasyMaster.Master.cs" Inherits="MasterPage1._Easy.Site1" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="EasyMaster.Master.cs" Inherits="MasterPage1._Easy.Site1" ClassName="Master" %>
 
 <!DOCTYPE html>
 
@@ -51,7 +51,7 @@
 
 <%--ButtonActive here--%>
 
-          <a class="nav-link text-white " href="Frm2.aspx" onclick="sidebarColor()">
+          <a id="BtnPage2" class="nav-link text-white " href="Frm2.aspx" onclick="sidebarColor()">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">table_view</i>
             </div>

@@ -36,18 +36,29 @@ namespace MasterPage1._EasyPages
 
             DGVShow.DataSource = T.ToList();
             DGVShow.DataBind();
-
+            //DGVShow.Columns[0].HeaderText= "TEST";
         }
 
-       protected void BtnSubmit_Click(object sender, EventArgs e)
+        protected void DGVShow_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.Header)
+            {
+                e.Row.Cells[0].Text = "المعرف";
+                e.Row.Cells[1].Text = "الإسم";
+                e.Row.Cells[2].Text = "اللقب";
+            }
+        }
+
+        protected void BtnSubmit_Click(object sender, EventArgs e)
         {
 
 
             LblTestFun.Text = "Great";
             LblTestFun.BackColor = Color.MediumSeaGreen;
             LblTestFun.ForeColor = Color.White;
+            BtnSubmit.Attributes.CssStyle.Clear();
             BtnSubmit.CssClass = "nav-link text-white active bg-gradient-primary";
-            
+            //Master.
         }
     }
 }
