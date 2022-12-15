@@ -36,22 +36,28 @@
 
     <br />
     <br />
-
+    <div class="row mb-4">
      <div class="col-lg-8 col-md-6 mb-md-0 mb-4" style="width:100%">
           <div class="card">
             <div class="card-header pb-0">
+
                 <h3>Data View</h3>
 
+                <div class="card-body px-0 pb-2">
+                <div class="table-responsive">
                 <asp:GridView ID="DGVShow" runat="server" 
                     CssClass="table align-items-center mb-0" 
-                    BorderStyle="None" AllowPaging="False" 
-                    AllowSorting="True" AutoGenerateSelectButton="True" 
+                    BorderStyle="None" AllowPaging="true" 
+                    AllowSorting="True"
                     SelectedRowStyle-BorderStyle="Solid" 
                     SelectedRowStyle-BorderColor="#E32F6E" 
                     SelectedRowStyle-ForeColor="#E32F6E"
-                    AutoGenerateColumns="False">
+                    AutoGenerateColumns="False" 
+                    OnPageIndexChanging="DGVShow_PageIndexChanging"
+                    >
 
                   <Columns>
+                       <asp:CommandField ShowSelectButton="True" SelectText="إختيار" />
                        <asp:BoundField DataField="Id" HeaderText="المعرف" 
                        InsertVisible="False" ReadOnly="True" SortExpression="Id" ControlStyle-ForeColor="Blue" />
                        <asp:BoundField DataField="first_name" HeaderText="الإسم الأول" 
@@ -59,13 +65,22 @@
                        <asp:BoundField DataField="last_name" HeaderText="إسم العائلة" 
                        SortExpression="last_name" />
                  </Columns>
+                      <footerstyle BackColor="#222224" Font-Bold="True" ForeColor="White">
+               
+                      </footerstyle>   
+
+                      <pagerstyle BackColor="#222224" ForeColor="White" HorizontalAlign="Center">
+               
+                      </pagerstyle>
+
 
                 </asp:GridView>
-
+             </div>
             </div>
-
+           </div> 
           </div>
         </div>
+       </div>
 
    
 

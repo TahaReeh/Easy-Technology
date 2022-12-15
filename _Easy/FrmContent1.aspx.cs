@@ -1,6 +1,7 @@
 ﻿using MasterPage1._DBConnection;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Drawing;
 using System.Linq;
 using System.Web;
@@ -13,19 +14,21 @@ namespace MasterPage1._EasyPages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                GetData();
+            }
+               
+        }
+
+        private void GetData()
+        {
             HREntities HR = new HREntities();
 
             var T = (from E in HR.Employees
-                     select new
-                     {
-                         E.Id,
-                         E.first_name,
-                         E.last_name,
-                         E.Job
-                     });
+                     select E);
 
 
-            //DdChoose.Items.Clear();
             DdChoose.DataSource = T.ToList();
             DdChoose.DataValueField = "Id";
             DdChoose.DataTextField = "first_name";
@@ -36,29 +39,37 @@ namespace MasterPage1._EasyPages
 
             DGVShow.DataSource = T.ToList();
             DGVShow.DataBind();
-            //DGVShow.Columns[0].HeaderText= "TEST";
+
         }
 
         protected void DGVShow_RowDataBound(object sender, GridViewRowEventArgs e)
         {
-            if (e.Row.RowType == DataControlRowType.Header)
-            {
-                e.Row.Cells[0].Text = "المعرف";
-                e.Row.Cells[1].Text = "الإسم";
-                e.Row.Cells[2].Text = "اللقب";
-            }
+            //if (e.Row.RowType == DataControlRowType.Header)
+            //{
+            //    e.Row.Cells[0].Text = "المعرف";
+            //    e.Row.Cells[1].Text = "الإسم";
+            //    e.Row.Cells[2].Text = "اللقب";
+            //}
+
+            //DGVShow.RowStyle.BorderStyle = BorderStyle.Solid;
         }
 
         protected void BtnSubmit_Click(object sender, EventArgs e)
         {
 
-
+            
             LblTestFun.Text = "Great";
             LblTestFun.BackColor = Color.MediumSeaGreen;
             LblTestFun.ForeColor = Color.White;
             BtnSubmit.Attributes.CssStyle.Clear();
             BtnSubmit.CssClass = "nav-link text-white active bg-gradient-primary";
             //Master.
+        }
+
+        protected  void DGVShow_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            DGVShow.PageIndex = e.NewPageIndex;
+            GetData();
         }
     }
 }
